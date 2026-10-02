@@ -23,14 +23,30 @@ h1 {
     letter-spacing: 4px;
 }
 
-.navigation {
-    display: flex;
-    gap: 12px;
-    margin-bottom: 15px;
-}
-
 .navigation button {
     flex: 1;
+    min-height: 52px;
+    font-size: 18px;
+}
+
+button {
+    padding: 13px 24px;
+    border: 2px solid #222;
+    border-radius: 10px;
+
+    background: transparent;
+    color: #222;
+
+    font-size: 17px;
+    font-weight: 500;
+
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+button:hover {
+    background: #222;
+    color: white;
 }
 
 .backupControls {
@@ -43,35 +59,26 @@ h1 {
 .backupControls button,
 .backupControls .importLabel {
     flex: 1;
-    padding: 11px 18px;
-    font-size: 16px;
+    padding: 13px 24px;
+
+    font-size: 17px;
     font-family: Arial, sans-serif;
     text-align: center;
 
-    background: #222;
-    color: white;
+    background: transparent;
+    color: #222;
 
-    border: none;
-    border-radius: 8px;
+    border: 2px solid #222;
+    border-radius: 10px;
 
     cursor: pointer;
     margin: 0;
-
-    line-height: normal;
 }
 
 .backupControls button:hover,
 .backupControls .importLabel:hover {
-    opacity: 0.85;
-}
-
-.settings {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 12px;
-    flex-wrap: wrap;
-    margin-bottom: 25px;
+    background: #222;
+    color: white;
 }
 
 .stats {
