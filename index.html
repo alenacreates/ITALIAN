@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Italienisch Karteikarten</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="container">
+
+<h1>CIAO</h1>
+    <div class="navigation">
+        <button id="learnViewButton">Lernen</button>
+        <button id="addViewButton">Karte hinzufügen</button>
+        <button id="listViewButton">Alle Karten</button>
+    </div>
+
+ <div class="backupControls">
+
+    <button id="exportButton">
+
+        Fortschritt exportieren
+
+    </button>
+
+    <label for="importFile" class="importLabel">
+
+        Fortschritt importieren
+
+    </label>
+
+    <input
+
+        type="file"
+
+        id="importFile"
+
+        accept=".json"
+
+        style="display: none;"
+
+    >
+
+</div>
+
+    <!-- LERNBEREICH -->
+
+    <section id="learnView">
+
+        <div class="settings">
+
+            <label for="direction">
+                Abfragerichtung:
+            </label>
+
+            <select id="direction">
+                <option value="it-de">
+                    Italienisch → Deutsch
+                </option>
+
+                <option value="de-it">
+                    Deutsch → Italienisch
+                </option>
+            </select>
+
+            <button id="shuffleButton">
+                Karten mischen
+            </button>
+
+        </div>
+
+
+        <div class="score">
+
+            <span>
+                Heute richtig:
+                <strong id="correctScore">0</strong>
+            </span>
+
+            <span>
+                Falsch:
+                <strong id="wrongScore">0</strong>
+            </span>
+
+        </div>
+
+
+        <div class="progress">
+
+            Aktive Karten:
+            <strong id="activeCards">0</strong>
+
+            |
+
+            Gelernt:
+            <strong id="learnedCards">0</strong>
+
+        </div>
+
+
+        <div class="card">
+
+            <p class="smallText">
+                Übersetze:
+            </p>
+
+            <h2 id="question">
+                ...
+            </h2>
+
+            <input
+                type="text"
+                id="answerInput"
+                placeholder="Antwort eingeben..."
+                autocomplete="off"
+            >
+
+            <button id="checkButton">
+                Antwort prüfen
+            </button>
+
+            <p id="feedback"></p>
+
+            <p id="cardProgress"></p>
+
+            <button
+                id="nextButton"
+                class="secondary"
+            >
+                Nächste Karte
+            </button>
+
+        </div>
+
+    </section>
+
+
+    <!-- KARTE HINZUFÜGEN -->
+
+    <section
+        id="addView"
+        class="hidden"
+    >
+
+        <div class="panel">
+
+            <h2>Neue Karte</h2>
+
+            <label for="newItalian">
+                Italienisch
+            </label>
+
+            <input
+                type="text"
+                id="newItalian"
+                placeholder="z. B. capire"
+            >
+
+            <label for="newGerman">
+                Deutsch
+            </label>
+
+            <input
+                type="text"
+                id="newGerman"
+                placeholder="z. B. verstehen"
+            >
+
+            <button id="addCardButton">
+                Karte hinzufügen
+            </button>
+
+            <p id="addMessage"></p>
+
+        </div>
+
+    </section>
+
+
+    <!-- LISTE -->
+
+    <section
+        id="listView"
+        class="hidden"
+    >
+
+        <div class="panel">
+
+            <h2>Alle Karteikarten</h2>
+
+            <div id="cardList"></div>
+
+        </div>
+
+    </section>
+
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>

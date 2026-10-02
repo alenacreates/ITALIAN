@@ -1,0 +1,177 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #f4f4f4;
+    min-height: 100vh;
+}
+
+.container {
+    width: 100%;
+    max-width: 700px;
+    margin: auto;
+    padding: 40px 20px;
+}
+
+h1 {
+    text-align: center;
+    font-size: 48px;
+    margin-bottom: 30px;
+    letter-spacing: 4px;
+}
+
+.navigation {
+    display: flex;
+    gap: 12px;
+    margin-bottom: 15px;
+}
+
+.navigation button {
+    flex: 1;
+}
+
+.backupControls {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin: 20px 0 25px;
+}
+
+.backupControls button,
+.backupControls .importLabel {
+    flex: 1;
+    padding: 11px 18px;
+    font-size: 16px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+
+    background: #222;
+    color: white;
+
+    border: none;
+    border-radius: 8px;
+
+    cursor: pointer;
+    margin: 0;
+
+    line-height: normal;
+}
+
+.backupControls button:hover,
+.backupControls .importLabel:hover {
+    opacity: 0.85;
+}
+
+.settings {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+}
+
+.stats {
+    display: flex;
+    justify-content: center;
+    gap: 35px;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+.score,
+.progress {
+    display: flex;
+    gap: 25px;
+    margin: 0;
+}
+
+.card {
+    background: white;
+    padding: 45px;
+    border-radius: 18px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+    text-align: center;
+}
+
+.card {
+    text-align: center;
+}
+
+.smallText {
+    color: #777;
+}
+
+#question {
+    font-size: 36px;
+    margin: 25px 0;
+}
+
+input {
+    width: 100%;
+    padding: 14px;
+    border: 2px solid #ddd;
+    border-radius: 8px;
+    margin: 8px 0 15px;
+}
+
+#feedback {
+    min-height: 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+.correct {
+    color: green;
+}
+
+.wrong {
+    color: red;
+}
+
+.hidden {
+    display: none;
+}
+
+
+/* LISTE */
+
+.listItem {
+    border-bottom: 1px solid #ddd;
+    padding: 15px 0;
+}
+
+.listItem:last-child {
+    border-bottom: none;
+}
+
+.words {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.status {
+    margin-top: 5px;
+    color: #666;
+}
+
+.learned {
+    color: green;
+    font-weight: bold;
+}
+.importLabel {
+    display: inline-block;
+    padding: 11px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    background: #555;
+    color: white;
+    margin-left: 10px;
+}
+
+.importLabel:hover {
+    opacity: 0.85;
+}
