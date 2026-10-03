@@ -314,6 +314,19 @@ if (savedCards) {
     );
 }
 
+flashcards.forEach(function(card) {
+
+    if (!Number.isFinite(card.wrongCount)) {
+        card.wrongCount = 0;
+    }
+
+});
+
+localStorage.setItem(
+    "italianFlashcards",
+    JSON.stringify(flashcards)
+);
+
 
 // ----------------------------
 // VARIABLEN
@@ -377,6 +390,9 @@ const shuffleButton =
 const direction =
     document.getElementById("direction");
 
+const learningMode =
+    document.getElementById("learningMode");
+
 
 const correctScore =
     document.getElementById("correctScore");
@@ -437,9 +453,22 @@ function saveCards() {
 
 function getActiveCards() {
 
-    return flashcards.filter(
-        card => card.correctCount < 3
-    );
+    let active =
+        flashcards.filter(function(card) {
+            return card.correctCount < 3;
+        });
+
+
+    if (learningMode.value === "wrong") {
+
+        active =
+            active.filter(function(card) {
+                return card.wrongCount > 0;
+            });
+
+    }
+
+    return active;
 
 }
 
@@ -481,7 +510,9 @@ function showCard() {
     if (active.length === 0) {
 
         question.textContent =
-            "Alle Karten gelernt! 🎉";
+            learningMode.value === "wrong"
+                ? "Keine falschen Karten!"
+                : "Alle Karten gelernt! 🎉";
 
         answerInput.style.display =
             "none";
@@ -641,6 +672,7 @@ function checkAnswer() {
     } else {
 
         wrongAnswers++;
+        card.wrongCount++;
 
         wrongScore.textContent =
             wrongAnswers;
@@ -757,7 +789,9 @@ function addCard() {
 
         german: german,
 
-        correctCount: 0
+        correctCount: 0,
+
+        wrongCount: 0
 
     };
 
@@ -986,6 +1020,16 @@ direction.addEventListener(
     showCard
 );
 
+learningMode.addEventListener(
+    "change",
+    function() {
+
+        currentCardIndex = 0;
+        showCard();
+
+    }
+);
+
 searchCards.addEventListener(
     "input",
     renderCardList
@@ -1135,6 +1179,14 @@ function importProgress(event) {
                 flashcards =
                     importedCards;
 
+                flashcards.forEach(function(card) {
+
+                    if (!Number.isFinite(card.wrongCount)) {
+                        card.wrongCount = 0;
+                    }
+
+                });
+
                 saveCards();
 
                 currentCardIndex = 0;
@@ -1169,4 +1221,13 @@ exportButton.addEventListener(
 importFile.addEventListener(
     "change",
     importProgress
+);
+learningMode.addEventListener(
+    "change",
+    function() {
+
+        currentCardIndex = 0;
+        showCard();
+
+    }
 );
