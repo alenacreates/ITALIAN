@@ -1,0 +1,9 @@
+{
+  "name": "CIAO Italienisch",
+  "short_name": "CIAO",
+  "start_url": "./",
+  "display": "standalone",
+  "background_color": "#f4f4f4",
+  "theme_color": "#f4f4f4",
+  "description": "Italienisch Karteikarten lernen"
+}
