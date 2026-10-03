@@ -408,6 +408,9 @@ const addMessage =
 const cardList =
     document.getElementById("cardList");
 
+const searchCards =
+    document.getElementById("searchCards");
+
 const exportButton =
     document.getElementById("exportButton");
 
@@ -784,8 +787,29 @@ function renderCardList() {
 
     cardList.innerHTML = "";
 
+    const searchTerm =
+        searchCards.value
+            .trim()
+            .toLowerCase();
 
-    flashcards.forEach(
+
+    const filteredCards =
+        flashcards.filter(function(card) {
+
+            return (
+                card.italian
+                    .toLowerCase()
+                    .includes(searchTerm)
+                ||
+                card.german
+                    .toLowerCase()
+                    .includes(searchTerm)
+            );
+
+        });
+
+
+    filteredCards.forEach(
         function(card) {
 
             const item =
@@ -960,6 +984,11 @@ addCardButton.addEventListener(
 direction.addEventListener(
     "change",
     showCard
+);
+
+searchCards.addEventListener(
+    "input",
+    renderCardList
 );
 
 
